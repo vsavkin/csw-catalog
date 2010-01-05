@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Minimal gmd based instance document -->
+<MD_Metadata xmlns="http://www.isotc211.org/2005/gmd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:gco="http://www.isotc211.org/2005/gco"
+             xsi:schemaLocation="http://www.isotc211.org/2005/gco ../gco/gco.xsd
+http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
+
+  <contact>
+    <CI_ResponsibleParty>
+      <organisationName>
+        <gco:CharacterString>Viktor</gco:CharacterString></organisationName>
+      <role>
+        <CI_RoleCode codeList="./resources/codeList.xml#CI_RoleCode"codeListValue="custodian">custodian</CI_RoleCode>
+      </role>
+    </CI_ResponsibleParty>
+  </contact>
+
+  <dateStamp>
+    <gco:Date>2004-03-12</gco:Date>
+  </dateStamp>
+
+  <identificationInfo>
+    <MD_DataIdentification>
+      <citation>
+        <CI_Citation>
+          <title><gco:CharacterString>[title]</gco:CharacterString></title>
+          <date>
+            <CI_Date>
+              <date><gco:Date>1993-01-01</gco:Date></date>
+              <dateType>
+                <CI_DateTypeCode codeList="./resources/codeList.xml#CI_DateTypeCode" codeListValue="publication">publication</CI_DateTypeCode>
+              </dateType>
+            </CI_Date>
+          </date>
+        </CI_Citation>
+      </citation>
+
+      <abstract>
+        <gco:CharacterString>[abstract]</gco:CharacterString>
+      </abstract>
+
+      <language>
+        <gmd:LanguageCode codeList="./resources/codeList.xml#LanguageCode" codeListValue="eng"/>
+      </language>
+
+      <topicCategory>
+        <MD_TopicCategoryCode>boundaries</MD_TopicCategoryCode>
+      </topicCategory>
+      
+      <extent>
+        <EX_Extent>
+          <geographicElement>
+            <EX_GeographicBoundingBox>
+              <westBoundLongitude>
+                <gco:Decimal>129.0</gco:Decimal>
+              </westBoundLongitude>
+              <eastBoundLongitude>
+                <gco:Decimal>141.0</gco:Decimal>
+              </eastBoundLongitude>
+              <southBoundLatitude>
+                <gco:Decimal>-38.5</gco:Decimal>
+              </southBoundLatitude>
+              <northBoundLatitude>
+                <gco:Decimal>-26.0</gco:Decimal>
+              </northBoundLatitude>
+            </EX_GeographicBoundingBox>
+          </geographicElement>
+        </EX_Extent>
+      </extent>
+    </MD_DataIdentification>
+  </identificationInfo>
+</MD_Metadata>
