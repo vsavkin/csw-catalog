@@ -59,6 +59,14 @@ class PersonalControllerTest < ActionController::TestCase
     assert_template 'show_metadata'
   end
 
+  test 'you can view metadata if you are not registered' do
+    session[:user_id] = nil
+    md = add_metadata_to_user(users(:john))
+    get :show_metadata, :f => 'nice', :id => md.id
+    assert_equal 'nice', assigns(:format)
+    assert_template 'show_metadata'
+  end
+
   test 'show error message if there_is no such metadata' do
     get :show_metadata, :f => 'nice', :id => "BOO"
     assert_template 'show_metadata'
@@ -68,6 +76,6 @@ class PersonalControllerTest < ActionController::TestCase
   private
   def add_metadata_to_user(user)
     xml = @db.create_metadata_with(:id => 1).xml
-    user.metadatas(true).create(:format => "iso19115", :xml => xml)
+    user.metadatas(true).create(:standard => "iso19115", :xml => xml)
   end
 end

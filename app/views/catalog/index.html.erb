@@ -6,7 +6,8 @@
       <table>
         <tr>
           <td><%= t :request_type %></td>
-          <td><%= select_tag(:request, options_for_select([['GetCapabilities'], ['DescribeRecord'], ['GetRecords']],
+          <!--, ['DescribeRecord'], ['GetRecords']-->
+          <td><%= select_tag(:request, options_for_select([['GetCapabilities']],
                                                           @request)) %></td>
         </tr>
         <tr>

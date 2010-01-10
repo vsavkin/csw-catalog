@@ -1,5 +1,5 @@
 class PersonalController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :except => 'show_metadata'
 
   def index
     @metadatas = Metadata.find_all_by_user_id(@current_user, :order => 'updated_at DESC')
@@ -42,7 +42,7 @@ class PersonalController < ApplicationController
 
   def show_metadata
     @format = params[:f]
-    md = @current_user.metadatas.find_by_id(params[:id])
+    md = Metadata.find_by_id(params[:id])
     if ! md
       flash[:error] = "There is no metadata with id #{id}"
     else

@@ -23,8 +23,7 @@ class UserControllerTest < ActionController::TestCase
 
     test 'show login form' do
 		get :login
-		assert_response :success
-		assert_template 'show_login'
+		assert_redirected_to :action => 'show_login'
 	end
 
 	test 'perform user login' do
@@ -36,8 +35,7 @@ class UserControllerTest < ActionController::TestCase
 
 	test 'fail user login' do
 	  	post :login, :login => 'no such', :password => 'user'
-	  	assert_response :success
-	  	assert_template 'show_login'
+        assert_redirected_to :action => 'show_login'
 	  	assert_nil session[:user_id]
 	end
 
