@@ -1,0 +1,21 @@
+<div class="title"><%= t :registration_title %></div>
+<%= error_messages_for 'user' %>
+
+<fieldset>
+    <legend><%= t :fill_in_form %></legend>
+    <% form_for :user do |form| %>
+        <label for="user_login"><%= t :login %>:</label>
+        <%= form.text_field :login, :size => 40 %>
+
+        <label for="user_name"><%= t :name %>:</label>
+        <%= form.text_field :name, :size => 40 %>
+
+        <label for="user_password"><%= t :password %>:</label>
+        <%= form.password_field :password, :size => 40 %>
+
+        <label for="user_email"><%= t :email %>:</label>
+        <%= form.text_field :email, :size => 40 %>
+
+        <div class="block"><%= submit_tag t(:create_account), :class => "submit" %></div>
+    <% end %>
+</fieldset>

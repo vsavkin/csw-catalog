@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-type"
+        content="text/html; charset=utf-8"/>
+  <title>Metadata Catalog Client</title>
+  <%= stylesheet_link_tag 'style' %>
+  <%= javascript_include_tag "prototype" %>
+</head>
+<body>
+
+<div id="header">
+  <div id="logo">
+    <img src="/images/catalog.png">
+
+    <div id="navigation-links">
+      <%= link_to t(:main_page), :controller => 'main' %>
+    </div>
+  </div>
+
+  <div id="header-links">
+    <% if logged_in? %>
+        <%= t :you_are_label, :name => @current_user.name %>.
+        <div class="small_bottom_link">
+          <%= link_to t(:my_acount), :controller => 'personal' %> |
+          <%= link_to t(:sign_out), :controller => 'user', :action => 'logout' %> |
+          <%= link_to t(:catalog_testing), :controller => 'catalog' %>
+        </div>
+    <% else %>
+        <%= link_to t(:sign_in), :controller => 'user', :action => 'show_login' %>
+
+        <div class="small_bottom_link">
+          <%= link_to t(:create_account), :controller => 'user', :action => 'register_user' %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="content">
+  <%= flash_message %>
+  <%= yield %>
+</div>
+
+<div class="locale_block">
+  <%= link_to 'Русский', :controller => 'main', :action => 'set_locale', :locale => 'ru' %> |
+  <%= link_to 'English', :controller => 'main', :action => 'set_locale', :locale => 'en' %>
+</div>
+</body>
+</html>

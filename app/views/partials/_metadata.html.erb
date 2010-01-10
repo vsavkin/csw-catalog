@@ -1,0 +1,11 @@
+<div class="metadata">
+  <div class="metadata_title">
+    <%= metadata.id %> - <%= metadata.field('title') %> (Updated: <%= date_time(metadata.field('modified')) %>)
+  </div>
+  <div class="metadata_abstract">
+    <%= metadata.field('abstract') %>
+  </div>
+  <div class="result_link">
+    <%= link_to t(:show_metadata), :controller => 'personal', :action => 'show_metadata', :id => metadata.id %> 
+  </div>
+</div>

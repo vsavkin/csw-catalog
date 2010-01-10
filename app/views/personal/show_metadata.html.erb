@@ -1,0 +1,31 @@
+<% if @metadata %>
+    <div class="change_format">
+      <strong>Format:</strong>
+      <%= link_to 'xml', :action => 'show_metadata', :id => @metadata.id, :f => 'xml' %> |
+      <%= link_to 'processed', :action => 'show_metadata', :id => @metadata.id, :f => 'nice' %>
+    </div>
+
+    <div class="block">
+      <% if @format == 'nice' %>
+          <div class="block">
+            <div class="title">
+              Item: <%= @metadata.id %>
+            </div>
+            <div class="block">
+              <%= @metadata.field('title') %>
+            </div>
+            <div class="block">
+              <%= @metadata.field('abstract') %>
+            </div>
+          </div>
+      <% else %>
+          <div class="block">
+            <div class="title">
+              Item: <%= @metadata.id %>
+            </div>
+            <%= @metadata.field('title') %>
+          </div>
+          <pre><%= CGI.escapeHTML(@metadata.xml) %></pre>
+      <% end %>
+    </div>
+<% end %>

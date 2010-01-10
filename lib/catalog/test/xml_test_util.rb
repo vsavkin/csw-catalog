@@ -9,6 +9,10 @@ module Catalog
         assert_equal a, b
       end
 
+      def check_xml_equals_with_fake_root(required, actual)
+        check_xml_equals "<r>#{required}</r>", "<r>#{actual}</r>"  
+      end
+
       def check_xml_structure(xml, list_of_nodes)
         doc = REXML::Document.new(xml)
         current_nodes = [doc.root]

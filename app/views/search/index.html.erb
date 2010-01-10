@@ -1,0 +1,26 @@
+<div class="search-block">
+  <div class="title">
+    <%= t :search_title %>
+  </div>
+  <% form_tag({:action => 'index'}) do %>
+      <%= text_field_tag 'query', @query %>
+      <%= submit_tag 'Search' %>
+  <% end %>
+  <div id="extent">
+    <%= render :partial => 'extent' %>
+  </div>
+  <%= link_to 'Clean', :action => 'clean_page' %>
+</div>
+
+<div class="block">
+  <% if ! @metadatas.empty? then %>
+      <div class="title">
+        <%= t :search_results %>
+      </div>
+      <% for m in @metadatas do %>
+          <%= render(:partial => 'partials/metadata', :locals => {:metadata => m}) %>
+      <% end %>
+  <% else %>
+      <%= t :empty_search_results %>
+  <% end %>
+</div>

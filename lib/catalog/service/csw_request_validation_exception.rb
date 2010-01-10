@@ -12,7 +12,7 @@ module Catalog
       def initialize(message, code = NO_APPLICABLE_CODE, locator = nil)
         super(message)
         @code = code
-        @locator = locator
+        @locator = locator.to_s
       end
     end
   end

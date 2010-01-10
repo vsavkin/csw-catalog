@@ -1,0 +1,144 @@
+html {
+}
+
+body {
+    background-color: #666;
+    font-family: Arial, sans-serif;
+}
+
+#content {
+    padding: 10px 10px 20px 10px; /*height: 100%;*/
+    background-color: #fff;
+    border: 10px solid #ccc;
+}
+
+#header {
+    background-color: #ccc;
+    padding: 10px 20px;
+    height: 50px;
+}
+
+#logo {
+    float: left;
+}
+
+#header-links {
+    float: right;
+}
+
+#navigation-links {
+    font-size: small;
+}
+
+#mdtable {
+    background-color: #ccccff;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+#mdtable_header td {
+    background-color: white;
+}
+
+.mdtable_header {
+    background-color: #666;
+    color: white;
+    text-align: center;
+}
+
+.metadata_abstract {
+    font-size: smaller;
+    padding: 10px;
+}
+
+.block {
+    margin: 15px 0;
+}
+
+.title {
+    font-size: larger;
+}
+
+.search-block {
+    margin: 15px 0;
+}
+
+.search-block a {
+    font-size: small;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+.small_bottom_link {
+    font-size: small;
+}
+
+.change_format {
+    font-size: small;
+    width: 200px;
+    background: #ccc;
+    border: solid darkgray 1px;
+    padding: 5px;
+    float: right;
+}
+
+#message {
+    color: green;
+}
+
+#error {
+    color: red;
+}
+
+#extent_div {
+    font-size: small;
+}
+
+.select_extent {
+    background-color: #ccccff;
+    padding: 5px;
+    font-size: smaller;
+    width: 300px;
+    border: solid darkgray 1px;
+}
+
+.select_extent input {
+    width: 80px;
+}
+
+.extent_label {
+    width: 100px;
+    float: left;
+}
+
+.additional_query {
+    font-size: smaller;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+.big_plus {
+    font-weight: bold;
+}
+
+.metadata_title {
+    font-size: 120%;
+    padding: 5px;
+}
+
+.locale_block {
+    padding: 3px;
+    font-size: 70%;
+}
+
+.locale_block a {
+    color: white;
+}
+
+.result_link {
+    font-size: smaller;
+    padding: 0 10px 10px 10px;
+}

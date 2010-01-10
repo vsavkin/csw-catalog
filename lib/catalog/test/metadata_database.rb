@@ -5,7 +5,7 @@ module Catalog
         xml = read_file('iso_template.xml')
         values(params).each do |k, v|
           replace = "[#{k.to_s}]"
-          xml.gsub!(replace, v)
+          xml.gsub!(replace, v.to_s)
         end
         id = params[:id] ||= "id"
         Catalog::Core::ISOMetadata.new(id, xml)
@@ -17,7 +17,7 @@ module Catalog
       end
 
       def values(override)
-        std = {:title => 'Title!', :id => 'id', :abstract => 'abstract'}
+        std = {:title => 'Title!', :id => 'id', :abstract => 'abstract', :modified => DateTime.parse('2009-10-01')}
         std.merge override
       end
     end

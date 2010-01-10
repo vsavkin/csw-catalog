@@ -14,6 +14,7 @@ module Catalog
         check_xml_structure xml, ['Capabilities', 'ServiceIdentification']
         check_xml_structure xml, ['Capabilities', 'ServiceProvider']
         check_xml_structure xml, ['Capabilities', 'OperationsMetadata']
+        check_xml_structure xml, ['Capabilities', 'Filter_Capabilities']
       end
     end
   end

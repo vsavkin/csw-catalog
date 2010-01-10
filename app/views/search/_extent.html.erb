@@ -1,0 +1,14 @@
+<% if (@extent) then %>
+    <div class="additional_query">
+      <span class="big_plus">+</span> <%= @extent.to_s %>
+      <%= link_to_remote 'Edit',
+                         :update => 'extent',
+                         :url => {:action => 'extent_form'},
+                         :with => "'show=true'" %>
+    </div>
+<% else %>
+    <%= link_to_remote 'Add Spatial Restrictions',
+                       :update => 'extent',
+                       :url => {:action => 'extent_form'},
+                       :with => "'show=true'" %>
+<% end %>

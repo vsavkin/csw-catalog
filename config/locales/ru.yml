@@ -1,0 +1,50 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ru:
+  #main
+  my_acount: "Мой кабинет"
+  sign_out: "Выйти"
+  catalog_testing: "Testing Catalog"
+  you_are_label: "Вы - {{name}}"
+  main_page: "Главная страница"
+
+  #search
+  invalid_extent_error_message: "Ошибка: неверный формат введенного ограничения"
+  search_title: "Поиск"
+  search_results: "Результаты"
+  empty_search_results: "По вашему запросу ничего не найдено"
+  show_metadata: "Открыть"
+
+  #user
+  user_registered: "Пользователь {{name}} зарегистрирован"
+  invalid_login_or_password: "Неверная пара логин/пароль"
+  registration_title: "Регистрация"
+  fill_in_form: 'Заполните форму'
+  login: 'Логин'
+  name: 'Имя'
+  password: 'Пароль'
+  email: 'Email'
+  create_account: 'Создать аккаунт'
+  sign_in: 'Войти'
+  not_registered_yet: 'Если вы ещё не зарегистрированы, сделайте это прямо сейчас.'
+
+  #catalog
+  create_request: 'Составить запрос'
+  catalog_response: 'Ответ каталога'
+  request_type: 'Запрос'
+  service_type: 'Сервис'
+  version: 'Версия'  
+
+  #personal
+  there_are_items_in_database: "В вашей базе {{count}} метаданных."
+  upload_or_update: "Загрузить / обновить запись"
+  upload_button: "Загрузить"
+  your_metadata_items: "Ваши записи"
+  short_description: "Короткое описание"
+  standard: "Стандрат"
+  created_at: "Создано"
+  updated_at: "Обновлено"
+  #sent_to_catalog_at: "Отослано в каталог"
+  delete_selected: "Удалить выделенные"
+  send_changes_to_catalog: "Отослать все изменения в каталог"

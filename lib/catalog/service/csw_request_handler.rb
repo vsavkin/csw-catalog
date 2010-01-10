@@ -2,12 +2,24 @@ module Catalog
   module Service
 
     class CswRequestHandler
+      attr_reader :params
+      
       def initialize(params)
         @params = downcase_params(params)
       end
 
       def handle
         common_checks
+      end
+
+      def check_parameter(name, required_value)
+        value = @params[name]
+        if value.nil?
+          raise CswRequestValidationException.new("You must specify #{name}", MISSING_PARAMETER_VALUE, name)
+        end
+        if value != required_value
+          raise CswRequestValidationException.new("#{name} must be set as #{required_value}", INVALID_PARAMETER_VALUE, name)
+        end
       end
 
       private
@@ -20,13 +32,7 @@ module Catalog
       end
 
       def common_checks
-        service = @params[:service]
-        if service.nil?
-          raise CswRequestValidationException.new('Service must be set as CSW', MISSING_PARAMETER_VALUE, 'service')
-        end
-        if service != 'csw'
-          raise CswRequestValidationException.new('Service must be set as CSW', INVALID_PARAMETER_VALUE, 'service')
-        end
+        check_parameter :service, 'csw'
 
         version = @params[:version]
         if version.nil?

@@ -11,13 +11,13 @@ http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
       <organisationName>
         <gco:CharacterString>Viktor</gco:CharacterString></organisationName>
       <role>
-        <CI_RoleCode codeList="./resources/codeList.xml#CI_RoleCode"codeListValue="custodian">custodian</CI_RoleCode>
+        <CI_RoleCode codeList="./resources/codeList.xml#CI_RoleCode" codeListValue="custodian">custodian</CI_RoleCode>
       </role>
     </CI_ResponsibleParty>
   </contact>
 
   <dateStamp>
-    <gco:Date>2004-03-12</gco:Date>
+    <gco:Date>[modified]</gco:Date>
   </dateStamp>
 
   <identificationInfo>
@@ -53,16 +53,16 @@ http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
           <geographicElement>
             <EX_GeographicBoundingBox>
               <westBoundLongitude>
-                <gco:Decimal>129.0</gco:Decimal>
+                <gco:Decimal>[west]</gco:Decimal>
               </westBoundLongitude>
               <eastBoundLongitude>
-                <gco:Decimal>141.0</gco:Decimal>
+                <gco:Decimal>[east]</gco:Decimal>
               </eastBoundLongitude>
               <southBoundLatitude>
-                <gco:Decimal>-38.5</gco:Decimal>
+                <gco:Decimal>[south]</gco:Decimal>
               </southBoundLatitude>
               <northBoundLatitude>
-                <gco:Decimal>-26.0</gco:Decimal>
+                <gco:Decimal>[north]</gco:Decimal>
               </northBoundLatitude>
             </EX_GeographicBoundingBox>
           </geographicElement>

@@ -1,0 +1,16 @@
+<div class="block">
+  <div class="title"><%= t :sign_in %></div>
+  <% form_tag(:action => 'login') do %>
+      <label><%= t :login %>:</label>
+      <%= text_field_tag 'login' %>
+      <label><%= t :password %>:</label>
+      <%= password_field_tag 'password' %>
+
+      <div class="block"><%= submit_tag t(:sign_in) %></div>
+  <% end %>
+</div>
+
+<div class="block">
+  <%= t :not_registered_yet %>
+  <%= link_to t(:create_account), :controller => 'user', :action => 'register_user' %>
+</div>

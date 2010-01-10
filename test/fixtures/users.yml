@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+john:
+  login: john
+  password: 123
+  name: john
+  email: john@gmail.com
+
+peter:
+  login: peter
+  password: 123
+  name: peter
+  email: peter@gmail.com

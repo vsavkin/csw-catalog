@@ -13,6 +13,6 @@ class CswControllerTest < ActionController::TestCase
 
   test 'returns exception if version or service is invalid' do
     get :endpoint, :request => 'getcapabilities', :service => 'BOOM'
-    assert_match /Service must be/, @response.body
+    assert_match /service must be/, @response.body
   end
 end

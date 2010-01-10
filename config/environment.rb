@@ -18,6 +18,7 @@ Rails::Initializer.run do |config|
   config.gem 'flexmock'
   config.gem 'require_all'
   config.gem 'builder'
+  
 #  config.gem "rspec-rails"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
@@ -42,3 +43,6 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+
+

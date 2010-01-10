@@ -1,0 +1,43 @@
+<div class="block">
+  <div class="title">
+    <%= t :create_request %>
+  </div>
+  <% form_tag({:action => 'send_request'}) do %>
+      <table>
+        <tr>
+          <td><%= t :request_type %></td>
+          <td><%= select_tag(:request, options_for_select([['GetCapabilities'], ['DescribeRecord'], ['GetRecords']],
+                                                          @request)) %></td>
+        </tr>
+        <tr>
+          <td><%= t :service_type %></td>
+          <td><%= text_field_tag 'service', @service %></td>
+        </tr>
+        <tr>
+          <td><%= t :version %></td>
+          <td><%= text_field_tag 'version', @version %></td>
+        </tr>
+        <% for index in [0, 1, 2] do %>
+            <tr>
+              <td><%= text_field_tag 'additional_keys[]', @additional_keys[index] %></td>
+              <td><%= text_field_tag 'additional_values[]', @additional_values[index] %></td>
+            </tr>
+        <% end %>
+
+        <tr>
+          <td colspan=2>
+            <%= submit_tag 'Send' %>
+          </td>
+        </tr>
+      </table>
+  <% end %>
+</div>
+
+<% if @response %>
+    <div class="block">
+      <div class="title">
+        <%= t :catalog_response %>
+      </div>
+      <pre><%= pretty_xml @response %></pre>
+    </div>
+<% end %>

@@ -2,4 +2,49 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  #main
+  my_acount: "My Account"
+  sign_out: "Sign out"
+  catalog_testing: "Testing Catalog"
+  you_are_label: "You are {{name}}"
+  main_page: "Main Page"
+
+  #search
+  invalid_extent_error_message: "Error: Invalid format of the inputted extent"
+  search_title: "Search"
+  search_results: "Results"
+  empty_search_results: "Your search did not march any items"
+  show_metadata: "Show metadata"
+
+  #user
+  user_registered: "User {{name}} has been registered"
+  invalid_login_or_password: "Invalid login/password pair"
+  registration_title: "Registration"
+  fill_in_form: 'Fill in Form'
+  login: 'Login'
+  name: 'Name'
+  password: 'Password'
+  email: 'Email'
+  create_account: 'Create an account'
+  sign_in: 'Sign in'
+  not_registered_yet: 'If you have not registered yet you should do it right now.'
+
+  #catalog
+  create_request: 'Create Request'
+  catalog_response: 'Catalog Response'
+  request_type: 'Request'
+  service_type: 'Service'
+  version: 'Version'
+
+  #personal
+  there_are_items_in_database: "There are {{count}} metadata items in your database."
+  upload_or_update: "Upload new / update an item"
+  upload_button: "Upload"
+  your_metadata_items: "Your Metadata Items"
+  short_description: "Short Description"
+  standard: "Standard"
+  created_at: "Created at"
+  updated_at: "Updated at"
+  #sent_to_catalog_at: "Sent to Catalog"
+  delete_selected: "Delete Selected"
+  send_changes_to_catalog: "Send all your changes to the catalog service"

@@ -1,0 +1,44 @@
+<div class="block">
+  <%= t :there_are_items_in_database, :count => @current_user.metadatas.size %>
+</div>
+
+<div class="block">
+  <div class="title">
+    <%= t :upload_or_update %>
+  </div>
+
+  <% form_tag({:action => 'upload_metadata'}, :multipart => true) do %>
+      <%= file_field 'upload', 'datafile' %> <%= submit_tag t(:upload_button) %>
+  <% end %>
+</div>
+
+<div class="block">
+  <div class="title">
+    <%= t :your_metadata_items %>
+  </div>
+
+  <% form_tag :action => 'delete_selected' do %>
+      <table id="mdtable">
+        <hr id="mdtable_header">
+            <td class='mdtable_header'>
+            <td class='mdtable_header'>ID</td>
+            <td class='mdtable_header'><%= t :short_description %></td>
+            <td class='mdtable_header'><%= t :standard %></td>
+            <td class='mdtable_header'><%= t :created_at %></td>
+            <td class='mdtable_header'><%= t :updated_at %></td>
+        </hr>
+
+        <% for md in @metadatas do %>
+            <tr>
+              <td><%= check_box_tag('selected[]', md.id) %></td>
+              <td><%= link_to md.id, :controller => 'personal', :action => 'show_metadata', :id => md.id %></td>
+              <td><%= md.short_description %></td>
+              <td><%= md.standard %></td>
+              <td><%= date_time(md.created_at) %></td>
+              <td><%= date_time(md.updated_at) %></td>
+            </tr>
+        <% end %>
+      </table>
+      <%= submit_tag t(:delete_selected) %>
+  <% end %>
+</div>
