@@ -39,7 +39,13 @@ module Catalog
           when 'subject'  then get_using_xpath("//subject/CharacterString")
           when 'modified' then DateTime.parse(get_using_xpath("//dateStamp/Date"))
           when 'anytext'  then agg_fields('title', 'abstract', 'subject')
-          when 'boundingbox' then nil            
+          when 'boundingbox' then
+            bbox = '//EX_Extent/geographicElement/EX_GeographicBoundingBox/'
+            south = get_using_xpath(bbox + 'southBoundLatitude/Decimal').to_f
+            north = get_using_xpath(bbox + 'northBoundLatitude/Decimal').to_f
+            east = get_using_xpath(bbox + 'eastBoundLongitude/Decimal').to_f
+            west = get_using_xpath(bbox + 'westBoundLongitude/Decimal').to_f
+            Envelope.new(Point.new(west, south), Point.new(east, north))
         end
       end
 

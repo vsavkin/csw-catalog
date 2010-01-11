@@ -12,6 +12,12 @@ module Catalog
         assert bb1.bbox(e)
         assert ! bb2.bbox(e)
       end
+
+      test 'polygon can return envelope including it' do
+        p = Polygon.new(Point.new(-100,-100), Point.new(0,100), Point.new(100,0))
+        assert_equal Envelope.parse('-100 -100 100 100'), p.envelope
+      end
+      
     end
   end
 end

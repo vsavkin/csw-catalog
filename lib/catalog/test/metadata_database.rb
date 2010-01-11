@@ -6,7 +6,7 @@ module Catalog
         values(params).each do |k, v|
           replace = "[#{k.to_s}]"
           xml.gsub!(replace, v.to_s)
-        end
+        end      
         id = params[:id] ||= "id"
         Catalog::Core::ISOMetadata.new(id, xml)
       end
@@ -18,6 +18,12 @@ module Catalog
 
       def values(override)
         std = {:title => 'Title!', :id => 'id', :abstract => 'abstract', :modified => DateTime.parse('2009-10-01')}
+        if extend = override[:extent]
+          std[:west] = extend.west
+          std[:east] = extend.east
+          std[:north] = extend.north
+          std[:south] = extend.south
+        end
         std.merge override
       end
     end

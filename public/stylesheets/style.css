@@ -93,19 +93,16 @@ label {
     color: red;
 }
 
-#extent_div {
-    font-size: small;
-}
 
-.select_extent {
+.select_geo {
     background-color: #ccccff;
-    padding: 5px;
+    padding: 10px;
     font-size: smaller;
-    width: 300px;
+    width: 250px;
     border: solid darkgray 1px;
 }
 
-.select_extent input {
+.select_geo input {
     width: 80px;
 }
 
@@ -141,4 +138,14 @@ label {
 .result_link {
     font-size: smaller;
     padding: 0 10px 10px 10px;
+}
+
+.geo_table {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.geo_table td {
+    width: 50px;
 }

@@ -6,8 +6,8 @@
       <%= text_field_tag 'query', @query %>
       <%= submit_tag 'Search' %>
   <% end %>
-  <div id="extent">
-    <%= render :partial => 'extent' %>
+  <div id="geo">
+    <%= render :partial => 'geo' %>
   </div>
   <%= link_to 'Clean', :action => 'clean_page' %>
 </div>

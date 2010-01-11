@@ -23,7 +23,7 @@ module Catalog
         assert_equal 'myid', md.field('Identifier')      
         assert_equal 'myabstract', md.field('Abstract')
         assert_equal 'mytitle myabstract', md.field('AnyText')
-        #assert_equal Envelope.parse('0 0 5 5'), md.field('BoundingBox')      
+        assert_equal Envelope.parse('0 0 5 5'), md.field('BoundingBox')
         assert_nil md.field('SomeText')
       end
     end

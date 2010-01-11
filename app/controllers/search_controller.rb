@@ -13,9 +13,9 @@ class SearchController < ApplicationController
     @metadatas = [] and return if !params[:query]
 
     @query = params[:query].strip
-    @extent = session[:extent]
+    @geo = session[:geo]
     begin
-      filter = create_filter(@query, @extent)
+      filter = create_filter(@query, @geo)
       @metadatas = @gateway.find_all_by(filter)
     rescue Exception => e
       @error_message = e.message
@@ -25,45 +25,46 @@ class SearchController < ApplicationController
   end
 
   def clean_page
-    session[:extent] = nil
+    session[:geo] = nil
     redirect_to :action => 'index'
   end
 
-  def extent_form
-    @extent = session[:extent]
+  def geo_form
+    @geo = session[:geo]
     if params[:show] then
-      @extent ||= Envelope.parse('0 0 10 10')
-      render :partial => 'extent_form'
+      @geo ||= Polygon.parse('1 59 19 59 1 40 19 40')
+      render :partial => 'geo_form'
     else
-      render :partial => 'extent'
+      render :partial => 'geo'
     end
   end
 
-  def clear_extent_form
+  def clear_geo_form
     session[:extent] = nil
     params[:show] = false
-    extent_form
+    geo_form
   end
 
-  def save_extent
+  def save_geo
     begin
-      crs = params[:crs]
-      env = Envelope.new(Point.new(float_param(:x1), float_param(:y1)),
-                         Point.new(float_param(:x2), float_param(:y2)),
-                         crs)
-      session[:extent] = env
+      p1 = Point.new(float_param(:x1), float_param(:y1))
+      p2 = Point.new(float_param(:x2), float_param(:y2))
+      p3 = Point.new(float_param(:x3), float_param(:y3))
+      p4 = Point.new(float_param(:x4), float_param(:y4))
+      geo = Polygon.new(p1, p2, p3, p4)
+      session[:geo] = geo
     rescue
       @error_message = t :invalid_extent_error_message
-      session[:extent] = nil
+      session[:geo] = nil
     end
-    extent_form
+    geo_form
   end
 
   private
   def create_filter(query, extent)
     full_text = PropertyIsLike.new('AnyText', query)
     if extent
-      bbox = BBOX.new('BoundingBox', @extent)
+      bbox = BBOX.new('BoundingBox', @geo.envelope)
       Catalog::Core::Filter.create(And.new(full_text, bbox))
     else
       Catalog::Core::Filter.create(full_text)  

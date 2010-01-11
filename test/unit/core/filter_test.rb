@@ -102,14 +102,14 @@ module Catalog
         assert filter.check(md2)
       end
 
-#      test 'can use bbox operation to geo checking' do
-#        md1 = @db.create_metadata_with(:id => '1', :extent => Envelope.parse('0 0 5 5'))
-#        md2 = @db.create_metadata_with(:id => '2', :extent => Envelope.parse('0 0 10 10'))
-#
-#        filter = Filter.create(BBOX.new('BoundingBox', Envelope.parse('0 0 7 7')))
-#        assert filter.check(md1)
-#        assert! filter.check(md2)
-#      end
+      test 'can use bbox operation to geo checking' do
+        md1 = @db.create_metadata_with(:id => '1', :extent => Envelope.parse('0 0 5 5'))
+        md2 = @db.create_metadata_with(:id => '2', :extent => Envelope.parse('0 0 10 10'))
+
+        filter = Filter.create(BBOX.new('BoundingBox', Envelope.parse('0 0 7 7')))
+        assert filter.check(md1)
+        assert !filter.check(md2)
+      end
 
       private
       def check_filters(required, actual)

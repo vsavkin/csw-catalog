@@ -1,0 +1,37 @@
+<div class="select_geo">
+  <% form_remote_tag :url => url_for(:action => "save_geo"), :update => 'geo' do %>
+
+      <table class="geo_table">
+        <tr>
+          <td><%= text_field_tag 'y1', @geo[0].y %></td>
+          <td>Lat</td>
+          <td><%= text_field_tag 'y2', @geo[1].y %></td>
+        </tr>
+        <tr>
+          <td><%= text_field_tag 'x1', @geo[0].x %></td>
+          <td>Lon</td>
+          <td><%= text_field_tag 'x2', @geo[1].x %></td>
+        </tr>
+        <tr>
+          <td colspan=3>
+            Center: <%= text_field_tag 'undefined', 'undefined', :disabled => true %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= text_field_tag 'y3', @geo[2].y %></td>
+          <td>Lat</td>
+          <td><%= text_field_tag 'y4', @geo[3].y %></td>
+        </tr>
+        <tr>
+          <td><%= text_field_tag 'x3', @geo[2].x %></td>
+          <td>Lon</td>
+          <td><%= text_field_tag 'x4', @geo[3].x %></td>
+        </tr>
+      </table>
+
+      <%= submit_tag "Accept" %>
+      <%= link_to_remote 'Clear',
+                         :update => 'geo',
+                         :url => {:action => 'clear_geo_form'} %>
+  <% end %>
+</div>
