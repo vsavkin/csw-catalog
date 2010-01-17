@@ -1,6 +1,8 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+require 'init_catalog'
+
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -37,5 +39,11 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = session[:locale] unless session[:locale].blank?
     true
+  end
+
+  def all_metadata
+    Metadata.all.collect do |m|
+      MetadataFactory.create(m.id, m.standard, m.xml)
+    end
   end
 end

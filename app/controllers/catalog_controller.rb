@@ -19,7 +19,8 @@ class CatalogController < ApplicationController
       args[e] = @additional_values[i] unless e.empty?
     end
 
-    @handler_manager = Catalog::Service::HandlerManager.new
+    gateway = Catalog::Core::InMemoryMetadataGateway.new(all_metadata)
+    @handler_manager = Catalog::Service::HandlerManager.new(gateway)
     @response = @handler_manager.process(args)
     render :action => 'index'
   end

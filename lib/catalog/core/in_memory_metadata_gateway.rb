@@ -24,6 +24,10 @@ module Catalog
       def find_all_by(filter)
         @data.find_all{|md| filter.check(md)}
       end
+
+      def all
+        @data
+      end
     end
   end
 end

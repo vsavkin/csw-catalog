@@ -11,10 +11,12 @@ module Catalog
 
       test 'get capabilities' do
         xml = @handler.handle
-        check_xml_structure xml, ['Capabilities', 'ServiceIdentification']
-        check_xml_structure xml, ['Capabilities', 'ServiceProvider']
-        check_xml_structure xml, ['Capabilities', 'OperationsMetadata']
-        check_xml_structure xml, ['Capabilities', 'Filter_Capabilities']
+        check_xml xml do
+          structure 'Capabilities', 'ServiceIdentification'
+          structure 'Capabilities', 'ServiceProvider'
+          structure 'Capabilities', 'OperationsMetadata'
+          structure 'Capabilities', 'Filter_Capabilities'          
+        end
       end
     end
   end

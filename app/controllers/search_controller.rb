@@ -1,12 +1,9 @@
 require 'init_catalog'
 
 class SearchController < ApplicationController
-  def initialize(gateway = InMemoryMetadataGateway.new)
-    data = Metadata.all.collect do |m|
-      MetadataFactory.create(m.id, m.standard, m.xml)
-    end     
+  def initialize(gateway = InMemoryMetadataGateway.new)  
     @gateway = gateway
-    @gateway.reinit data
+    @gateway.reinit all_metadata
   end
 
   def index

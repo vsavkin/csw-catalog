@@ -13,29 +13,40 @@ module Catalog
 
       test 'can generate brief xml representation' do
         md = DCMetadata.new(input)
-        xml = md.brief
+        check_xml md.brief do
+          structure 'BriefRecord', 'identifier'
+          structure 'BriefRecord', 'title'
+          structure 'BriefRecord', 'type'
 
-        check_xml_structure xml, ['BriefRecord', 'identifier']
-        check_xml_structure xml, ['BriefRecord', 'title']
-        check_xml_structure xml, ['BriefRecord', 'type']
-        
-        check_xpath xml, 'id', '//dc:identifier'
-        check_xpath xml, 'title', '//dc:title'
-        check_xpath xml, 'dataset', '//dc:type'
+          xpath 'id', '//dc:identifier'
+          xpath 'title', '//dc:title'
+          xpath 'dataset', '//dc:type'
+        end
       end
 
       test 'can generate summary xml representation' do
         md = DCMetadata.new(input)
-        xml = md.summary
-        check_xml_structure xml, ['SummaryRecord', 'identifier']
-        check_xpath xml, 'id', '//dc:identifier'
+        check_xml md.summary do
+          structure 'SummaryRecord', 'identifier'
+          xpath 'id', '//dc:identifier'
+        end
       end
 
       test 'can generate full xml representation' do
         md = DCMetadata.new(input)
-        xml = md.full
-        check_xml_structure xml, ['Record', 'identifier']
-        check_xpath xml, 'id', '//dc:identifier'
+        check_xml md.full do
+          structure 'Record', 'identifier'
+          xpath 'id', '//dc:identifier'
+        end
+      end
+
+      test 'can generate xml representation using exising builder' do
+        builder = Builder::XmlMarkup.new
+        builder.Test do
+          md = DCMetadata.new(input)
+          md.full(builder)
+        end
+        check_xml_structure builder.target!, ['Test', 'Record', 'identifier']
       end
 
       private

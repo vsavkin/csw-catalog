@@ -1,7 +1,8 @@
 class CswController < ApplicationController
 
   def initialize
-    @handler_manager = Catalog::Service::HandlerManager.new
+    gateway = Catalog::Core::InMemoryMetadataGateway.new(all_metadata)
+    @handler_manager = Catalog::Service::HandlerManager.new(gateway)
   end
 
   def endpoint

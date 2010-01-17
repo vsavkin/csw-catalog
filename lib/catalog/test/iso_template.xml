@@ -9,7 +9,8 @@ http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
   <contact>
     <CI_ResponsibleParty>
       <organisationName>
-        <gco:CharacterString>Viktor</gco:CharacterString></organisationName>
+        <gco:CharacterString>Viktor</gco:CharacterString>
+      </organisationName>
       <role>
         <CI_RoleCode codeList="./resources/codeList.xml#CI_RoleCode" codeListValue="custodian">custodian</CI_RoleCode>
       </role>

@@ -3,7 +3,7 @@ module Catalog
 
     class CswRequestHandler
       attr_reader :params
-      
+
       def initialize(params)
         @params = downcase_params(params)
       end
@@ -12,23 +12,41 @@ module Catalog
         common_checks
       end
 
-      def check_parameter(name, required_value)
+      def check_parameter(name, *required_value)
         value = @params[name]
         if value.nil?
           raise CswRequestValidationException.new("You must specify #{name}", MISSING_PARAMETER_VALUE, name)
         end
-        if value != required_value
-          raise CswRequestValidationException.new("#{name} must be set as #{required_value}", INVALID_PARAMETER_VALUE, name)
+        if !required_value.include?(value)
+          raise CswRequestValidationException.new("#{name} must be set as #{required_value.to_s}", INVALID_PARAMETER_VALUE, name)
+        end
+      end
+      
+      def parse_namespaces
+        namespaces = (params[:namespace] || '').split(',')
+        namespaces.collect do |n|
+          if n[0..5] != 'xmlns(' || n[-1..-1] != ')'
+            raise CswRequestValidationException.new("Invalid namespaces", INVALID_PARAMETER_VALUE, :namespace)
+          end
+          URI.decode(n[6..-2])
         end
       end
 
       private
       def downcase_params (params)
         res = {}
-        params.each do |k,v|
-          res[k.to_s.downcase.to_sym] = v.nil? ? v : v.downcase
+        params.each do |k, v|
+          res[k.to_s.downcase.to_sym] = downcase_value(k,v)
         end
         res
+      end
+
+      def downcase_value(k, v)
+        if v.nil? || [:constraint].include?(k)
+          v
+        else
+          v.downcase
+        end
       end
 
       def common_checks
