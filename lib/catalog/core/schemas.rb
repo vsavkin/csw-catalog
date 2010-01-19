@@ -1,7 +1,5 @@
-module Catalog
-  module Core
-    module Schemas
-      CSW = 'http://www.opengis.net/cat/csw/2.0.2'
-    end
+module Catalog::Core
+  module Schemas
+    CSW = 'http://www.opengis.net/cat/csw/2.0.2'
   end
 end

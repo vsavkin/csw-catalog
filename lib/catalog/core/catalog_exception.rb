@@ -1,6 +1,4 @@
-module Catalog
-  module Core
-    class CatalogException < Exception
-    end
+module Catalog::Core
+  class CatalogException < Exception
   end
 end
