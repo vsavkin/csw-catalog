@@ -18,7 +18,8 @@ Rails::Initializer.run do |config|
   config.gem 'flexmock'
   config.gem 'require_all'
   config.gem 'builder'
-  
+  config.gem 'libxml-ruby', :lib => 'libxml'
+
 #  config.gem "rspec-rails"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"

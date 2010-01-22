@@ -71,8 +71,6 @@ module Catalog::Core
     test 'filter parses dates' do
       filter = Filter.create(PropertyIsGreaterThan.new('Modified', DateTime.parse('2010-01-01')))
       xml = filter.to_xml
-
-      puts "parsing"
       parsed = Filter.parse(xml)
 
       assert parsed.exp.required_value.kind_of?(DateTime)

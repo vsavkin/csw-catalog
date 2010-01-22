@@ -2,9 +2,7 @@
 <!-- Minimal gmd based instance document -->
 <MD_Metadata xmlns="http://www.isotc211.org/2005/gmd"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:gco="http://www.isotc211.org/2005/gco"
-             xsi:schemaLocation="http://www.isotc211.org/2005/gco ../gco/gco.xsd
-http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
+             xmlns:gco="http://www.isotc211.org/2005/gco">
 
   <contact>
     <CI_ResponsibleParty>
@@ -42,7 +40,7 @@ http://www.isotc211.org/2005/gmd ../gmd/gmd.xsd">
       </abstract>
 
       <language>
-        <gmd:LanguageCode codeList="./resources/codeList.xml#LanguageCode" codeListValue="eng"/>
+        <gco:CharacterString>eng</gco:CharacterString>
       </language>
 
       <topicCategory>

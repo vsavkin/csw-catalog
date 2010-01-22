@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<xs:schema targetNamespace="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" elementFormDefault="qualified" version="0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">-->
+<xs:schema targetNamespace="http://global.namespace" xmlns="http://global.namespace" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--<xs:include schemaLocation="gco/gco.xsd"/>-->
+	<!--<xs:include schemaLocation="gmd/gmd.xsd"/>-->
+	<!--<xs:include schemaLocation="gml/gml.xsd"/>-->
+	<!--<xs:include schemaLocation="gmx/gmx.xsd"/>-->
+	<!--<xs:include schemaLocation="gsr/gsr.xsd"/>-->
+	<!--<xs:include schemaLocation="gss/gss.xsd"/>-->
+	<!--<xs:include schemaLocation="gts/gts.xsd"/>-->
+	<!--<xs:include schemaLocation="xlink/xlinks.xsd"/>	-->
+
+    <!--<xs:import schemaLocation="gco/gco.xsd" namespace="http://www.isotc211.org/2005/gco"/>-->
+	<!--<xs:import schemaLocation="gmd/gmd.xsd" namespace="http://www.isotc211.org/2005/gmd"/>-->
+	<!--<xs:import schemaLocation="gml/gml.xsd" namespace="http://www.opengis.net/gml"/>-->
+	<!--<xs:import schemaLocation="gmx/gmx.xsd" namespace="http://www.isotc211.org/2005/gmx"/>-->
+	<!--<xs:import schemaLocation="gsr/gsr.xsd" namespace="http://www.isotc211.org/2005/gsr"/>-->
+	<!--<xs:import schemaLocation="gss/gss.xsd" namespace="http://www.isotc211.org/2005/gss"/>-->
+	<!--<xs:import schemaLocation="gts/gts.xsd" namespace="http://www.isotc211.org/2005/gts"/>-->
+	<!--<xs:import schemaLocation="xlink/xlinks.xsd" namespace="http://www.w3.org/1999/xlink"/>-->
+
+    <xs:import schemaLocation="gco/gco.xsd"/>
+	<xs:import schemaLocation="gmd/gmd.xsd"/>
+	<xs:import schemaLocation="gml/gml.xsd"/>
+	<xs:import schemaLocation="gmx/gmx.xsd"/>
+	<xs:import schemaLocation="gsr/gsr.xsd"/>
+	<xs:import schemaLocation="gss/gss.xsd"/>
+	<xs:import schemaLocation="gts/gts.xsd"/>
+	<xs:import schemaLocation="xlink/xlinks.xsd"/>
+</xs:schema>

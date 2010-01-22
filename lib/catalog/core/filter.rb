@@ -238,8 +238,6 @@ module Catalog::Core
 
   class BBOX < AbstractPropertyOp
     def check(md)
-      puts required_value.to_s
-      puts md_value(md)
       required_value.bbox(md_value(md))
     end
   end

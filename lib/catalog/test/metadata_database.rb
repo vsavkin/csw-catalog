@@ -16,7 +16,8 @@ module Catalog::Test
     end
 
     def values(override)
-      std = {:title => 'Title!', :id => 'id', :abstract => 'abstract', :modified => DateTime.parse('2009-10-01')}
+      std = {:title => 'Title!', :id => 'id', :abstract => 'abstract', :modified => Date.parse('2009-10-01'),
+             :west => 0, :east => 0, :north => 0, :south => 0}
       if extend = override[:extent]
         std[:west] = extend.west
         std[:east] = extend.east
