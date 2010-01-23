@@ -149,3 +149,25 @@ label {
 .geo_table td {
     width: 50px;
 }
+
+
+/* xml formatting */
+.tag {
+    color: steelblue;
+    font-weight: bold;
+}
+
+.punct {
+    color: darkgray;
+    font-weight: bold;
+}
+
+.attribute {
+    color: dimgray;
+    font-weight: bold;
+}
+
+.namespace {
+    color: steelblue;
+    font-weight: bold;
+}

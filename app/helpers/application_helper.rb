@@ -28,4 +28,8 @@ module ApplicationHelper
       "Not yet"
     end
   end
+
+  def pretty_xml_format(xml)
+    Syntax::Convertors::HTML.for_syntax('xml').convert(xml)
+  end
 end

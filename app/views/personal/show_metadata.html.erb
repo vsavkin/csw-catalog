@@ -25,7 +25,7 @@
             </div>
             <%= @metadata.field('title') %>
           </div>
-          <pre><%= CGI.escapeHTML(@metadata.xml) %></pre>
+          <%= pretty_xml_format @metadata.xml %>
       <% end %>
     </div>
 <% end %>
