@@ -12,6 +12,8 @@ module Catalog::Service
       params[:resulttype] ||= 'hits'
       params[:outputformat] ||= 'application/xml'
       params[:outputschema] ||= CSW
+      params[:startposition] ||= 1
+      params[:maxrecords] ||= 10
 
       check_parameter :outputformat, 'application/xml'
       check_parameter :resulttype, 'hits', 'results'
@@ -19,15 +21,40 @@ module Catalog::Service
       check_parameter :outputschema, CSW
 
       namespaces = parse_namespaces
+      metadata = retrive_metadata
+      metadata_return = metadata_to_return(metadata)
 
+      generate_response(metadata, metadata_return)
+    end
+
+    private
+    def retrive_metadata
       if params[:constraint]
         filter = Filter.parse(params[:constraint])
-        metadata = @gateway.find_all_by(filter)
+        @gateway.find_all_by(filter)
       else
-        metadata = @gateway.all
+        @gateway.all
       end
-      metadata_return = params[:resulttype] == 'results' ? metadata : []
+    end
 
+    def metadata_to_return(metadata)
+      return [] unless params[:resulttype] == 'results'
+      start = params[:startposition].to_i - 1
+      max = params[:maxrecords].to_i
+      metadata[start...start + max]
+    end
+
+    def next_record(metadata)
+      start = params[:startposition].to_i
+      max = params[:maxrecords].to_i
+      if metadata.size <= start + max  - 1
+        0
+      else
+        start + max
+      end
+    end
+
+    def generate_response(metadata, metadata_return)
       builder = Builder::XmlMarkup.new
       root_args = {'xmlns' => CSW,
                    'xmlns:csw' => CSW,
@@ -40,14 +67,13 @@ module Catalog::Service
                                 :recordSchema => CSW,
                                 :numberOfRecordsMatched => metadata.size,
                                 :numberOfRecordsReturned => metadata_return.size,
-                                :nextRecord => 0}
+                                :nextRecord => next_record(metadata)}
         builder.SearchResults search_response_args do
           serialize_metadata builder, metadata_return
         end
       end
     end
 
-    private
     def serialize_metadata(builder, metadata)
       metadata.each do |m|
         dc = m.to_dublin_core

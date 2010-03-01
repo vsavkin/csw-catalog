@@ -18,7 +18,7 @@ module Catalog::Core
 
   class IsoSemanticValidator
     def validate(xml)
-      
+
     end
   end
 

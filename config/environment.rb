@@ -20,6 +20,7 @@ Rails::Initializer.run do |config|
   config.gem 'builder'
   config.gem 'libxml-ruby', :lib => 'libxml'
   config.gem 'syntax'
+  config.gem 'nokogiri'
 
 #  config.gem "rspec-rails"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"

@@ -57,6 +57,36 @@ module Catalog::Service
       end
     end
 
+    test 'client can specify start position and max records' do
+      md1 = @db.create_metadata_with(:title => 'my title')
+      md2 = @db.create_metadata_with(:title => 'my title2')
+      @gateway.should_receive(:all).once.and_return([md1, md2])
+
+      response = request :resulttype => 'results', :startposition => '1', :maxrecords => '1'
+      check_xml response do
+        structure 'GetRecordsResponse', 'SearchStatus'
+        structure 'GetRecordsResponse', 'SearchResults'
+        xpath '2', '//SearchResults', 'numberOfRecordsMatched'
+        xpath '1', '//SearchResults', 'numberOfRecordsReturned'
+        xpath '2', '//SearchResults', 'nextRecord'
+      end
+    end
+
+    test 'next record is 0 if all records are returned' do
+      md1 = @db.create_metadata_with(:title => 'my title')
+      md2 = @db.create_metadata_with(:title => 'my title2')
+      @gateway.should_receive(:all).once.and_return([md1, md2])
+
+      response = request :resulttype => 'results', :maxrecords => '2'
+      check_xml response do
+        structure 'GetRecordsResponse', 'SearchStatus'
+        structure 'GetRecordsResponse', 'SearchResults'
+        xpath '2', '//SearchResults', 'numberOfRecordsMatched'
+        xpath '2', '//SearchResults', 'numberOfRecordsReturned'
+        xpath '0', '//SearchResults', 'nextRecord'
+      end
+    end
+
     test 'results request return the number of found items' do
       md = @db.create_metadata_with(:title => 'my title')
       @gateway.should_receive(:all).once.and_return([md])
