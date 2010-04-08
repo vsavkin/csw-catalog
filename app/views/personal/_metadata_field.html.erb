@@ -1,0 +1,22 @@
+<% if metadata.field(name) %>
+    <div><strong><%= name %></strong>:
+      <span id="<%=name%>">
+        <% value = metadata.field(name).to_s.strip%>
+        <% if !value.nil? && !value.empty? %>
+          <%= metadata.field(name) %>
+        <% else %>
+          Empty
+        <% end %>
+      </span>
+    </div>
+
+    <script type="text/javascript">
+        new Ajax.InPlaceEditor('<%=name%>',
+                '/personal/edit_metadata_field/<%= metadata.id %>',{
+                  rows: 1,
+                  onFailure: function(transport) {
+                    alert("Invalid data");
+                  }
+                });
+    </script>
+<% end %>

@@ -11,12 +11,10 @@
             <div class="title">
               Item: <%= @metadata.id %>
             </div>
-            <div class="block">
-              <%= @metadata.field('title') %>
-            </div>
-            <div class="block">
-              <%= @metadata.field('abstract') %>
-            </div>
+            <%= render :partial => 'metadata_field', :locals => {:metadata => @metadata, :name => 'title'} %>
+            <%= render :partial => 'metadata_field', :locals => {:metadata => @metadata, :name => 'abstract'} %>
+            <%= render :partial => 'metadata_field', :locals => {:metadata => @metadata, :name => 'subject'} %>
+            <%= render :partial => 'metadata_field', :locals => {:metadata => @metadata, :name => 'modified'} %>
           </div>
       <% else %>
           <div class="block">

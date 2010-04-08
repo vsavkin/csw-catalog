@@ -55,16 +55,28 @@ class PersonalController < ApplicationController
     end
   end
 
+  def edit_metadata_field
+    field_name = params[:editorId].to_sym
+    field_value = params[:value].strip
+    md = Metadata.find_by_id(params[:id])
+    raise CatalogException, "There is no metadatas with id: #{params[:id]}" unless md
+
+    new_md = MetadataFactory.create(md.id, md.standard, md.xml).merge(field_name => field_value)
+    @validator.validate(new_md)
+    md.update_attribute :xml, new_md.xml
+    render :text => field_value
+  rescue Exception => e
+    render :text => e.message, :status => 500
+  end
+
   private
   def add_to_current_user(xml)
-    begin
-      md = MetadataFactory.create('stub', 'iso19115', xml)
-      @validator.validate(md)
-      @current_user.metadatas(true).create(:standard => 'iso19115', :xml => xml,
-                                          :short_description => md.field('title'))
-    rescue Exception => e
-      return flash[:error] = "Error: Invalid format of your metadata file: #{e.message}"
-    end
+    md = MetadataFactory.create('stub', 'iso19115', xml)
+    @validator.validate(md)
+    @current_user.metadatas(true).create(:standard => 'iso19115', :xml => xml,
+                                         :short_description => md.field('title'))
+  rescue Exception => e
+    return flash[:error] = "Error: Invalid format of your metadata file: #{e.message}"
   end
 
 end

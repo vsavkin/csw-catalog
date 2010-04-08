@@ -48,3 +48,5 @@ ru:
   #sent_to_catalog_at: "Отослано в каталог"
   delete_selected: "Удалить выделенные"
   send_changes_to_catalog: "Отослать все изменения в каталог"
+  edit_field: "Редактировать"
+  save_field: "Сохранить"

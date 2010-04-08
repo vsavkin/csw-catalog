@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<xs:schema targetNamespace="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" elementFormDefault="qualified" version="0.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xlink="http://www.w3.org/1999/xlink">-->
 <xs:schema targetNamespace="http://global.namespace" xmlns="http://global.namespace" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<!--<xs:include schemaLocation="gco/gco.xsd"/>-->
 	<!--<xs:include schemaLocation="gmd/gmd.xsd"/>-->
@@ -8,7 +7,7 @@
 	<!--<xs:include schemaLocation="gsr/gsr.xsd"/>-->
 	<!--<xs:include schemaLocation="gss/gss.xsd"/>-->
 	<!--<xs:include schemaLocation="gts/gts.xsd"/>-->
-	<!--<xs:include schemaLocation="xlink/xlinks.xsd"/>	-->
+	<!--<xs:include schemaLocation="xlink/xlinks.xsd"/>-->
 
     <!--<xs:import schemaLocation="gco/gco.xsd" namespace="http://www.isotc211.org/2005/gco"/>-->
 	<!--<xs:import schemaLocation="gmd/gmd.xsd" namespace="http://www.isotc211.org/2005/gmd"/>-->
@@ -27,4 +26,13 @@
 	<xs:import schemaLocation="gss/gss.xsd"/>
 	<xs:import schemaLocation="gts/gts.xsd"/>
 	<xs:import schemaLocation="xlink/xlinks.xsd"/>
+
+    <!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gco/gco.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gmd/gmd.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gml/gml.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gmx/gmx.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gsr/gsr.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gss/gss.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/gts/gts.xsd"/>-->
+	<!--<xs:import schemaLocation="/home/viktor/projects/ruby/vi3/lib/catalog/schemas/iso/xlink/xlinks.xsd"/>-->
 </xs:schema>

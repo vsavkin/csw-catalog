@@ -48,3 +48,5 @@ en:
   #sent_to_catalog_at: "Sent to Catalog"
   delete_selected: "Delete Selected"
   send_changes_to_catalog: "Send all your changes to the catalog service"
+  edit_field: "Edit"
+  save_field: "Save"

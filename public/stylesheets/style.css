@@ -171,3 +171,7 @@ label {
     color: steelblue;
     font-weight: bold;
 }
+
+.smallLink {
+    font-size: 70%;
+}
