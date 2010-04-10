@@ -1,5 +1,4 @@
 flexmock --version '= 0.8.6'
 require_all --version '= 1.1.0'
 builder --version '= 2.1.2'
-nokogiri --version '= 1.4.1'
 rails --version '= 2.3.5'
