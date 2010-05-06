@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def fetch_logged_in_user
-		puts 'i am here'
     return unless session[:user_id]
     @current_user = User.find_by_id(session[:user_id])
   end

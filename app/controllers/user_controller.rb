@@ -12,7 +12,7 @@ class UserController < ApplicationController
   end
 
   def login
-    @current_user = User.find_by_login_and_password(params[:login], params[:password])
+    @current_user = User.login(params[:login], params[:password])
     if @current_user
       session[:user_id] = @current_user.id
       if session[:return_to]
