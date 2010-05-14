@@ -6,6 +6,7 @@ en:
   my_acount: "My Account"
   sign_out: "Sign out"
   catalog_testing: "Testing Catalog"
+  help: "Help"
   you_are_label: "You are {{name}}"
   main_page: "Main Page"
 

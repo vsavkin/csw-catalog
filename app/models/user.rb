@@ -1,4 +1,3 @@
-require 'md5'
 class User < ActiveRecord::Base
   has_many :metadatas, :dependent => :delete_all, :autosave => true
 
@@ -15,14 +14,14 @@ class User < ActiveRecord::Base
   end
 
   def self.cipher
-    @@cipher ||= Catalog::Core::MD5Cipher.new
+    @@cipher ||= MD5Cipher.new
   end
 
   def self.login(login, password)
-    self.find_by_login_and_password(login, @@cipher.process(password))
+    self.find_by_login_and_password(login, cipher.process(password))
   end
 
   def cipher_password!
-    write_attribute("password", @@cipher.process(password))
+    write_attribute("password", User.cipher.process(password))
   end
 end

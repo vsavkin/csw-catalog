@@ -6,6 +6,7 @@ ru:
   my_acount: "Мой кабинет"
   sign_out: "Выйти"
   catalog_testing: "Testing Catalog"
+  help: "Помощь"  
   you_are_label: "Вы - {{name}}"
   main_page: "Главная страница"
 

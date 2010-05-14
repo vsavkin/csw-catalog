@@ -26,7 +26,8 @@
         <div class="small_bottom_link">
           <%= link_to t(:my_acount), :controller => 'personal' %> |
           <%= link_to t(:sign_out), :controller => 'user', :action => 'logout' %> |
-          <%= link_to t(:catalog_testing), :controller => 'catalog' %>
+          <%= link_to t(:catalog_testing), :controller => 'catalog' %> |
+          <%= link_to t(:help), :controller => 'help' %>
         </div>
     <% else %>
         <%= link_to t(:sign_in), :controller => 'user', :action => 'show_login' %>

@@ -1,3 +1,5 @@
+require 'md5'
+
 module Catalog::Core
   class MD5Cipher
     def process(str)
